@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="432.0" prefWidth="321.0" styleClass="akreditacija" stylesheets="@../CSS/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIKorisnik.FXMLDocumentController">
+   <children>
+      <PasswordField fx:id="sifra" layoutX="90.0" layoutY="277.0" prefHeight="25.0" prefWidth="111.0" />
+      <TextField fx:id="ime" layoutX="86.0" layoutY="106.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label layoutX="90.0" layoutY="200.0" text="Korisničko ime:" textFill="#f8f4f4">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font></Label>
+      <Label layoutX="95.0" layoutY="261.0" text="Šifra:" textFill="#f8f4f4">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font></Label>
+      <Button fx:id="kreirajKorisnika" layoutX="31.0" layoutY="361.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" styleClass="dugme" stylesheets="@../CSS/stylesheet.css" text="Registruj se" textFill="#1b24d0" />
+      <Label layoutX="88.0" layoutY="145.0" text="Prezime" textFill="#f8f4f4">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font></Label>
+      <Label layoutX="85.0" layoutY="90.0" text="Ime" textFill="#f8f4f4">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font></Label>
+      <Button fx:id="promeniKorisnika" layoutX="161.0" layoutY="361.0" mnemonicParsing="false" styleClass="dugme" stylesheets="@../CSS/stylesheet.css" text="Promeni korisnika" textFill="#1b24d0" />
+      <TextField fx:id="korisnickoIme" layoutX="90.0" layoutY="216.0" prefHeight="25.0" prefWidth="111.0" />
+      <TextField fx:id="prezime" layoutX="86.0" layoutY="161.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label layoutX="7.0" layoutY="18.0" prefHeight="32.0" prefWidth="197.0" text="Želite da igrate igru memorije?" textFill="#f8f4f4">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="106.0" layoutY="50.0" prefHeight="32.0" prefWidth="197.0" text="Unesite svoje podatke i registrujte se!" textFill="#f8f4f4">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
