@@ -16,7 +16,6 @@ public abstract class OpsteIzvrsenjeSO {
 
     public BrokerBazePodataka bbp = new BrokerBazePodatakaImpl();
     int recordsNumber;
-    //int currentRecord = -1;
     GeneralDObject gdo;
 
     public boolean opsteIzvrsenjeSO() {

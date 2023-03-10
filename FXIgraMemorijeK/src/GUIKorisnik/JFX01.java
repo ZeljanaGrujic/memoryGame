@@ -1,5 +1,3 @@
-// JFX01
-
 
 package GUIKorisnik;
 
@@ -14,7 +12,7 @@ import javafx.stage.StageStyle;
 
 /**
  *
- * @author Sinisa
+ * @author user
  */
 public class JFX01 extends Application {
     FXMLDocumentController con;

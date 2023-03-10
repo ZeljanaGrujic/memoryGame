@@ -14,30 +14,17 @@ public class FXMLDocumentController {
 
     @FXML
     public TextField prezime;
-
-    /* @FXML
-    public DatePicker datumRodjenja;
-     */
-
- /* @FXML
-    public Button promeniKorisnika;
-     */
     @FXML
     public Button kreirajKorisnika;
-
-    /* @FXML
-    public TextField idKorisnika;
-     */
     @FXML
     public PasswordField sifra;
 
     @FXML
     public TextField korisnickoIme;
 
-
     @FXML
     public void initialize() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException, IOException {
-        GUIKontrolerRegistracija kngui =new GUIKontrolerRegistracija(this);
+        GUIKontrolerRegistracija kngui = new GUIKontrolerRegistracija(this);
 
     }
 

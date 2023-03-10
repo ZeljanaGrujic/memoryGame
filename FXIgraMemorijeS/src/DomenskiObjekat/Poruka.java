@@ -11,12 +11,9 @@ import java.io.Serializable;
  * @author user
  */
 public class Poruka implements Serializable{
-    public String poruka;
-    public Long idKorisnika;
-    public String imeKorisnika;
-    public String prezimeKorisnika;
-    public Korisnik ulogovaniKorisnik;
-    public int brojac;
+    private String poruka;
+    private Long idKorisnika;
+    private Korisnik ulogovaniKorisnik;
 
     public String getPoruka() {
         return poruka;
@@ -34,36 +31,12 @@ public class Poruka implements Serializable{
         this.idKorisnika = idKorisnika;
     }
 
-    public String getImeKorisnika() {
-        return imeKorisnika;
-    }
-
-    public void setImeKorisnika(String imeKorisnika) {
-        this.imeKorisnika = imeKorisnika;
-    }
-
-    public String getPrezimeKorisnika() {
-        return prezimeKorisnika;
-    }
-
-    public void setPrezimeKorisnika(String prezimeKorisnika) {
-        this.prezimeKorisnika = prezimeKorisnika;
-    }
-
     public Korisnik getUlogovaniKorisnik() {
         return ulogovaniKorisnik;
     }
 
     public void setUlogovaniKorisnik(Korisnik ulogovaniKorisnik) {
         this.ulogovaniKorisnik = ulogovaniKorisnik;
-    }
-
-    public int getBrojac() {
-        return brojac;
-    }
-
-    public void setBrojac(int brojac) {
-        this.brojac = brojac;
     }
     
     

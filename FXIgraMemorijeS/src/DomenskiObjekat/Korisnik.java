@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class Korisnik extends GeneralDObject implements Serializable {
 
-    int idKorisnik;
+    Long idKorisnik;
     String korisnickoIme;
     String sifra;
     String ime;
@@ -24,7 +24,7 @@ public class Korisnik extends GeneralDObject implements Serializable {
     java.sql.Date datumRegistracije;
 
     public Korisnik() {
-        this.idKorisnik = 0;
+        this.idKorisnik = 0L;
         this.korisnickoIme = "";
         this.sifra = "";
         this.ime = "";
@@ -35,7 +35,7 @@ public class Korisnik extends GeneralDObject implements Serializable {
         datumRegistracije = java.sql.Date.valueOf(sm.format(dDatum));
     }
 
-    public Korisnik(int idKorisnik, String korisnickoIme, String sifra, String ime, String prezime, java.sql.Date datumRegistracije) {
+    public Korisnik(Long idKorisnik, String korisnickoIme, String sifra, String ime, String prezime, java.sql.Date datumRegistracije) {
         this.idKorisnik = idKorisnik;
         this.korisnickoIme = korisnickoIme;
         this.sifra = sifra;
@@ -44,7 +44,7 @@ public class Korisnik extends GeneralDObject implements Serializable {
         this.datumRegistracije = datumRegistracije;
     }
 
-    public Korisnik(int idKorisnik, String korisnickoIme, String sifra, String ime, String prezime) {
+    public Korisnik(Long idKorisnik, String korisnickoIme, String sifra, String ime, String prezime) {
         this.idKorisnik = idKorisnik;
         this.korisnickoIme = korisnickoIme;
         this.sifra = sifra;
@@ -81,11 +81,11 @@ public class Korisnik extends GeneralDObject implements Serializable {
     }
 
     // primarni kljuc
-    public Korisnik(int idKorisnik) {
+    public Korisnik(Long idKorisnik) {
         this.idKorisnik = idKorisnik;
     }
 
-    public int getIDKorisnik() {
+    public Long getIDKorisnik() {
         return this.idKorisnik;
     }
 
@@ -109,7 +109,7 @@ public class Korisnik extends GeneralDObject implements Serializable {
         return datumRegistracije;
     }
 
-    public void setIDKorisnika(int idKorisnik) {
+    public void setIDKorisnika(Long idKorisnik) {
         this.idKorisnik = idKorisnik;
     }
 
@@ -166,7 +166,7 @@ public class Korisnik extends GeneralDObject implements Serializable {
 
     @Override
     public DomenskiObjekat.GeneralDObject getNewRecord(ResultSet rs) throws SQLException {
-        return new DomenskiObjekat.Korisnik(rs.getInt("idKorisnik"), rs.getString("korisnickoIme"), rs.getString("sifra"), rs.getString("ime"), rs.getString("prezime"), rs.getDate("datumRegistracije"));
+        return new DomenskiObjekat.Korisnik(rs.getLong("idKorisnik"), rs.getString("korisnickoIme"), rs.getString("sifra"), rs.getString("ime"), rs.getString("prezime"), rs.getDate("datumRegistracije"));
     }
 
     @Override

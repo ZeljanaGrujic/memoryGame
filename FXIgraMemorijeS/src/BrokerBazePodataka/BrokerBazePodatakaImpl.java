@@ -188,8 +188,7 @@ public class BrokerBazePodatakaImpl extends BrokerBazePodataka {
         }
     }
 
-    //@Override
-    //public Iterator getIterator(GeneralDObject odo){return new DBIterator(this,odo);}
+   
     @Override
     public int getRecordsNumber(GeneralDObject odo) {
         ResultSet rs = null;

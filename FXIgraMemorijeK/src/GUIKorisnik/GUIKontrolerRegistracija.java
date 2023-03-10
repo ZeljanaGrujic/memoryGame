@@ -6,18 +6,14 @@ package GUIKorisnik;
 
 import DomenskiObjekat.GeneralDObject;
 import DomenskiObjekat.Korisnik;
-import DomenskiObjekat.Poruka;
 import GUIKorisnik.Osluskivac.OsluskivacKreirajDK;
 import TransferObjekat.GenerickiTransferObjekat;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.invoke.MethodHandles;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 
 /**
@@ -32,7 +28,6 @@ public class GUIKontrolerRegistracija {
     ObjectInputStream in;
 
     GenerickiTransferObjekat gto;
-    Korisnik kor;
 
     public GUIKontrolerRegistracija(FXMLDocumentController fxcon) throws IOException {
         this.fxcon = fxcon;
@@ -54,22 +49,21 @@ public class GUIKontrolerRegistracija {
 
     public void kreirajDK() {
 
-        kor = new Korisnik();
+        Korisnik kor = new Korisnik();
         kor.setKorisnickoIme(fxcon.korisnickoIme.getText());
         kor.setSifra(fxcon.sifra.getText());
         kor.setIme(fxcon.ime.getText());
         kor.setPrezime(fxcon.prezime.getText());
         kor.setDatumRegistracije(konvertujLocalDateUSqlDate(konvertujUtilDateULocalDate(new java.util.Date())));
-        System.out.println("Datum kreiranja korisnika je: " + kor.getDatumRegistracije());
-        System.out.println("Korisnik koji se salje je: " + kor.toString());
-        pozivSO(nazivSOKreiraj(), kor);
-       // Poruka p = transferObjekatPoruka();
-        poruka(gto.getPoruka().getPoruka());
-        System.out.println("Dobijeni Id korisnika iz poruke je: "+gto.getPoruka().getIdKorisnika());
-        // Korisnik sacuvaniKor = (Korisnik) gto.getDK();
-        // System.out.println("Sacuvani korisnik je: " + sacuvaniKor.getIme() + " sa ID jem: " + sacuvaniKor.getIDKorisnik());
-        //  System.out.println("Vraceni korisnik iz TOK objekta je na adresi "+sacuvaniKor);
 
+        // System.out.println("Korisnik koji se salje je: " + kor.toString());
+        pozivSO(nazivSOKreiraj(), kor);
+        poruka(gto.getPoruka().getPoruka());
+        try {
+            System.out.println("Dobijeni Id korisnika iz poruke je: " + gto.getPoruka().getUlogovaniKorisnik().getIDKorisnik());
+        } catch (Exception e) {
+            System.err.println("Korisnik nije dodat jer vec postoji korisnik sa istim korisnickim imenom i sifrom!");
+        }
     }
 
     private String nazivSOKreiraj() {
@@ -85,33 +79,24 @@ public class GUIKontrolerRegistracija {
             out = new ObjectOutputStream(soket.getOutputStream());
             in = new ObjectInputStream(soket.getInputStream());
         } catch (IOException ex) {
-            System.err.println("Greska prilikom otvaranja in i out tokova");
+            System.err.println("Greska prilikom otvaranja in i/ili out tokova");
         }
         try {
             out.writeObject(gto);
         } catch (IOException ex) {
 
-            System.err.println("Greska prilikm slanja objekta kod out write");
+            System.err.println("Greska prilikm slanja objekta kod out write metode");
         }
 
         try {
             gto = (GenerickiTransferObjekat) in.readObject();
             System.out.println("Dobijeni TOK objekat nazad je: " + gto.toString());
         } catch (IOException ex) {
-            System.err.println("Greska kod ucitavanja objekta in read object" + ex.getStackTrace());
+            System.err.println("Greska kod ucitavanja objekta in read object metoda" + ex.getStackTrace());
         } catch (ClassNotFoundException ex) {
 
             System.err.println("Klasa nije pronadjena");
         }
-    }
-
-    private Poruka transferObjekatPoruka() {
-
-        return gto.getPoruka();
-    }
-
-    public GenerickiTransferObjekat vratiTransferObjekat() {
-        return gto;
     }
 
     public LocalDate konvertujUtilDateULocalDate(java.util.Date input) {
@@ -127,4 +112,14 @@ public class GUIKontrolerRegistracija {
         return java.sql.Date.valueOf(sm.format(date));
     }
 
+    //MOZDA MI ZATREBA
+    /*  private Poruka transferObjekatPoruka() {
+
+        return gto.getPoruka();
+    }
+
+    public GenerickiTransferObjekat vratiTransferObjekat() {
+        return gto;
+    }
+     */
 }

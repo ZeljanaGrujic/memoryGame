@@ -4,12 +4,14 @@
  */
 package SO;
 
+import DomenskiObjekat.GeneralDObject;
 import DomenskiObjekat.Korisnik;
 import DomenskiObjekat.Poruka;
 import TransferObjekat.GenerickiTransferObjekat;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,19 +37,26 @@ public class KreirajDKRegistracija extends OpsteIzvrsenjeSO {
             p.setPoruka("Poslati korisnik je null");
             gto.setPoruka(p);
         }
+
+        if (korisnikVecPostoji(gto)) {
+            gto.setSignal(false);
+            return gto.getSignal();
+        }
+
         try {
             PreparedStatement ps = bbp.insert(gto.getDK());
             ResultSet tableKeys = ps.getGeneratedKeys();
             tableKeys.next();
             Long korisnikID = tableKeys.getLong(1);
-            System.out.println("Korisnik ima ID: " + korisnikID);
-            // Korisnik sacuvaniKor = (Korisnik) gto.getDK();
-            // sacuvaniKor.setIDKorisnika(korisnikID);
 
-            // gto.setDK(sacuvaniKor);
+            System.out.println("Korisnik ima ID: " + korisnikID);
+            Korisnik sacuvaniKor = (Korisnik) gto.getDK();
+            sacuvaniKor.setIDKorisnika(korisnikID);
+            gto.setDK(sacuvaniKor);
+
             p.setPoruka("Korisnik je uspesno ubacen u bazu");
             p.setIdKorisnika(korisnikID);
-            // p.ulogovaniKorisnik = sacuvaniKor;
+            p.setUlogovaniKorisnik(sacuvaniKor);
 
             gto.setPoruka(p);
             gto.setSignal(true);
@@ -59,5 +68,18 @@ public class KreirajDKRegistracija extends OpsteIzvrsenjeSO {
         }
 
         return gto.getSignal();
+    }
+
+    private boolean korisnikVecPostoji(GenerickiTransferObjekat gto) {
+        Poruka p = new Poruka();
+        List<GeneralDObject> find = bbp.findRecord(gto.getDK(),
+                " WHERE korisnickoIme='" + ((Korisnik) gto.getDK()).getKorisnickoIme() + "' AND sifra='" + ((Korisnik) gto.getDK()).getSifra() + "'");
+
+        if (!find.isEmpty()) {
+            p.setPoruka("Korisnik sa istim korisnickim imenom i lozinkom vec postoji!");
+            gto.setPoruka(p);
+            return true;
+        }
+        return false;
     }
 }
