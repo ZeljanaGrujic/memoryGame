@@ -56,8 +56,8 @@ public class GUIKontrolerRegistracija {
         kor.setPrezime(fxcon.prezime.getText());
         kor.setDatumRegistracije(konvertujLocalDateUSqlDate(konvertujUtilDateULocalDate(new java.util.Date())));
 
-        // System.out.println("Korisnik koji se salje je: " + kor.toString());
-        pozivSO(nazivSOKreiraj(), kor);
+        gto.setDK(kor);
+        pozivSO(nazivSOKreiraj());
         poruka(gto.getPoruka().getPoruka());
         try {
             System.out.println("Dobijeni Id korisnika iz poruke je: " + gto.getPoruka().getUlogovaniKorisnik().getIDKorisnik());
@@ -70,10 +70,12 @@ public class GUIKontrolerRegistracija {
         return "kreirajDK";
     }
 
-    public void pozivSO(String nazivSO, Korisnik kor) {
+    public void pozivSO(String nazivSO) {
         gto.setNazivOperacije(nazivSO);
-        System.out.println("Korisnik koji se salje iz metode pozivSO je: " + kor.toString());
-        gto.setDK(kor);
+        //Prvo sam kroz konstruktor metode prosledila korisnika koji treba da se setuje
+        //Ali kako bi postalo vise genericko onda sam ga sklonila i postavila u konkretnoj metodu kreirajDK
+        //System.out.println("Korisnik koji se salje iz metode pozivSO je: " + kor.toString());
+        //gto.setDK(kor);
 
         try {
             out = new ObjectOutputStream(soket.getOutputStream());
