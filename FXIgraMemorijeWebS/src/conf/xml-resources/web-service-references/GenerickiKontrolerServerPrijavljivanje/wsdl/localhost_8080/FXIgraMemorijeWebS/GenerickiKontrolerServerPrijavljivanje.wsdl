@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://Server/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="GenerickiKontrolerServerPrijavljivanje" targetNamespace="http://Server/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://Server/" elementFormDefault="unqualified" targetNamespace="http://Server/" version="1.0">
+
+  <xs:element name="proveraPrijavljivanja" type="tns:proveraPrijavljivanja"/>
+
+  <xs:element name="proveraPrijavljivanjaResponse" type="tns:proveraPrijavljivanjaResponse"/>
+
+  <xs:complexType name="proveraPrijavljivanja">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:generickiTransferObjekatKorisnik"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="generickiTransferObjekatKorisnik">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="kor" type="tns:korisnik"/>
+      <xs:element minOccurs="0" name="poruka" type="tns:poruka"/>
+      <xs:element name="signal" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="nazivOperacije" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="korisnik">
+    <xs:complexContent>
+      <xs:extension base="tns:generalDObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="datumRegistracije" type="tns:date"/>
+          <xs:element minOccurs="0" name="ime" type="xs:string"/>
+          <xs:element minOccurs="0" name="korisnickoIme" type="xs:string"/>
+          <xs:element minOccurs="0" name="prezime" type="xs:string"/>
+          <xs:element minOccurs="0" name="sifra" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType abstract="true" name="generalDObject">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="date">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="poruka">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idKorisnika" type="xs:long"/>
+      <xs:element minOccurs="0" name="poruka" type="xs:string"/>
+      <xs:element minOccurs="0" name="ulogovaniKorisnik" type="tns:korisnik"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="proveraPrijavljivanjaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:generickiTransferObjekatKorisnik"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="proveraPrijavljivanjaResponse">
+    <wsdl:part element="tns:proveraPrijavljivanjaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="proveraPrijavljivanja">
+    <wsdl:part element="tns:proveraPrijavljivanja" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GenerickiKontrolerServerPrijavljivanje">
+    <wsdl:operation name="proveraPrijavljivanja">
+      <wsdl:input message="tns:proveraPrijavljivanja" name="proveraPrijavljivanja">
+    </wsdl:input>
+      <wsdl:output message="tns:proveraPrijavljivanjaResponse" name="proveraPrijavljivanjaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GenerickiKontrolerServerPrijavljivanjeSoapBinding" type="tns:GenerickiKontrolerServerPrijavljivanje">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="proveraPrijavljivanja">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="proveraPrijavljivanja">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="proveraPrijavljivanjaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GenerickiKontrolerServerPrijavljivanje">
+    <wsdl:port binding="tns:GenerickiKontrolerServerPrijavljivanjeSoapBinding" name="GenerickiKontrolerServerPrijavljivanjePort">
+      <soap:address location="http://localhost:8080/FXIgraMemorijeWebS/GenerickiKontrolerServerPrijavljivanje"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
