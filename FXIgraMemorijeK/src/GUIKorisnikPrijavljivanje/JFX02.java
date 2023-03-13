@@ -43,4 +43,8 @@ public class JFX02 extends Application {
         launch(args);
     }
 
+    public FXMLDocumentController getController() {
+        return con;
+    }
+
 }

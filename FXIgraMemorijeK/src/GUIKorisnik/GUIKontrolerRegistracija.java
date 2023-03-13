@@ -7,6 +7,7 @@ package GUIKorisnik;
 import DomenskiObjekat.GeneralDObject;
 import DomenskiObjekat.Korisnik;
 import GUIKorisnik.Osluskivac.OsluskivacKreirajDK;
+import GUIKorisnik.Osluskivac.OsluskivacPrijavaKorisnika;
 import TransferObjekat.GenerickiTransferObjekat;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -28,11 +29,14 @@ public class GUIKontrolerRegistracija {
     ObjectInputStream in;
 
     GenerickiTransferObjekat gto;
+    OsluskivacPrijavaKorisnika opk;
 
     public GUIKontrolerRegistracija(FXMLDocumentController fxcon) throws IOException {
         this.fxcon = fxcon;
+        opk = new OsluskivacPrijavaKorisnika(fxcon);
 
         this.fxcon.kreirajKorisnika.setOnAction(new OsluskivacKreirajDK(this));
+        this.fxcon.prijaviKorisnika.setOnAction(opk);
 
         soket = new Socket("127.0.0.1", 8189);
         gto = new GenerickiTransferObjekat();
