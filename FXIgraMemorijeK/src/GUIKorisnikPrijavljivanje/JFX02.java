@@ -28,6 +28,7 @@ public class JFX02 extends Application {
         Parent root = fxmlLoader.load();
         con = (FXMLDocumentController) fxmlLoader.getController();
 
+        con.postaviStage(stage);
         Scene scene = new Scene(root);
         scene.getStylesheets().add("CSS/stylesheet.css");
         stage.setScene(scene);

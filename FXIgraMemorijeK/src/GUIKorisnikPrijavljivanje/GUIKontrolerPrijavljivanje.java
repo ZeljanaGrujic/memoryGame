@@ -22,6 +22,7 @@ import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -67,7 +68,25 @@ public class GUIKontrolerPrijavljivanje {
             gto.setGdo(zaPrijavu);
             System.out.println("Korisnik koji se prijavljuje kor ime: " + gto.getGdo().getKorisnickoIme() + " i sifra: " + gto.getGdo().getSifra());
             pozivSO(nazivSOPrijavi());
-            poruka(gto.getTekst().getSadrzaj());
+            if (gto.getTekst().getSadrzaj().equals("korisnik prijavljen")) {
+                poruka("Uspesna prijava!");
+
+                GUIGlavniMeni.JFX03 jfx03;
+                Stage s;
+                jfx03 = new GUIGlavniMeni.JFX03();
+                s = new Stage();
+                try {
+                    jfx03.start(s);
+                    jfx03.postaviUlogovanogKorisnika(gto.getTekst().getIdKorisnika());
+                    jfx03.postaviKorisnika(gto.getTekst().getUlogovaniKorisnik());
+                    this.fxcon.zatvoriFormu();
+                } catch (Exception ex) {
+                    System.err.println("Greska prilikom pokretanja glavnog menija iz GUIKontrolerPrijavljivanje klase");
+                }
+
+            } else {
+                poruka("Neuspesna prijava, pokusajte ponovo.");
+            }
             System.out.println("Prijavljeni korisnik ima ID: " + gto.getTekst().getUlogovaniKorisnik().getIdKorisnik());
         } else {
 
