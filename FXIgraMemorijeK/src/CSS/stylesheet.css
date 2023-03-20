@@ -1,0 +1,79 @@
+
+.pozadina {
+    -fx-background-image: url("../Slike/bgImage.jpg");
+    -fx-background-size: 100% 100%;
+
+}
+.crveno-polje{
+    -fx-background-color: #ff6666;
+}
+.narandzasto-polje {
+    -fx-background-color: #ffcc66;
+}
+.zuto-polje {
+    -fx-background-color: #ffff66;
+}
+.roze-polje {
+    -fx-background-color: #ffcccc;
+}
+.ljubicasto-polje {
+    -fx-background-color: #ff66ff;
+}
+.plavo-polje {
+    -fx-background-color: #9999ff;
+}
+.zeleno-polje {
+    -fx-background-color: #99ffcc;
+}
+.sivo-polje {
+    -fx-background-color: #009999;
+}
+.slovo-i{
+    -fx-background-image: url("../Slike/I.jpg");
+    -fx-background-size: 45 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.slovo-g{
+    -fx-background-image: url("../Slike/G.jpg");
+    -fx-background-size: 45 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.slovo-r{
+    -fx-background-image: url("../Slike/R.jpg");
+    -fx-background-size: 45 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.slovo-a{
+    -fx-background-image: url("../Slike/A.jpg");
+    -fx-background-size: 45 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.slovo-m{
+    -fx-background-image: url("../Slike/M.jpg");
+    -fx-background-size: 45 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.slovo-e{
+    -fx-background-image: url("../Slike/E.jpg");
+    -fx-background-size: 45 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.slovo-o{
+    -fx-background-image: url("../Slike/O.jpg");
+    -fx-background-size: 45 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+.slovo-j{
+    -fx-background-image: url("../Slike/J.jpg");
+    -fx-background-size: 45 45;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center;
+}
+
