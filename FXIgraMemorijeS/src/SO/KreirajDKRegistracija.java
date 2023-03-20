@@ -75,6 +75,10 @@ public class KreirajDKRegistracija extends OpsteIzvrsenjeSO {
         List<GeneralDObject> find = bbp.findRecord(gto.getDK(),
                 " WHERE korisnickoIme='" + ((Korisnik) gto.getDK()).getKorisnickoIme() + "' AND sifra='" + ((Korisnik) gto.getDK()).getSifra() + "'");
 
+        for (GeneralDObject k : find) {
+            System.out.println("Pronadjeni korisnik je: " + ((Korisnik) k) + " sa ID jem: " + ((Korisnik) k).getIDKorisnik());
+        }
+
         if (!find.isEmpty()) {
             p.setPoruka("Korisnik sa istim korisnickim imenom i lozinkom vec postoji!");
             gto.setPoruka(p);

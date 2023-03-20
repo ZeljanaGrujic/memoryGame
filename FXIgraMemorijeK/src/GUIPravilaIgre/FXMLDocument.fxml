@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="390.0" prefWidth="497.0" styleClass="pozadina" stylesheets="@../CSS/stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIPravilaIgre.FXMLDocumentController">
+   <children>
+      <Label layoutX="147.0" layoutY="14.0" prefHeight="32.0" prefWidth="197.0" text="                Pravila igre:" textAlignment="JUSTIFY" textFill="#1801c1">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="zatvori" layoutX="193.0" layoutY="308.0" mnemonicParsing="false" onAction="#izlazIzPrograma" prefHeight="26.0" prefWidth="111.0" styleClass="dugme" stylesheets="@../CSS/stylesheet.css" text="Zatvori" textFill="#1b24d0" />
+      <TextArea editable="false" layoutX="20.0" layoutY="67.0" prefHeight="226.0" prefWidth="462.0" text="1. U sekciji &quot;Autor programa&quot; možete pogledati informacije o kreatoru igrice.&#10;2. U sekciji &quot;Pokreni igru&quot; možete odabrati temu igre koju želite da igrate.&#10;3. Odabirom teme &quot;Knjige - Pisci&quot;, Vaš zadatak će biti da zapamtite i povežete&#10;sličicu pisca sa naslovom knjige koju je napisao.&#10;4. Odabirom teme &quot;Razno&quot;, dobijate sličice i pojmove iz različitih oblasti. &#10;Za svaki pojam je potrebno pronaći odgovarajući par sličica i spojiti ih.&#10;5. U sekciji &quot;Moj profil&quot; možete pogledati datum registracije na sistem, kao i&#10;Vaše podatke i kredencijale koje ste koristili prilikom prijavljivanja na sistem.&#10; Ovi podaci su vidljivi isključivo Vama.&#10;                            NIVO 1 - lakši nivo&#10;               Pred Vama će se naći 16 sličica koje je potrebno upariti.&#10;                            NIVO 2 - teži nivo&#10;               Pred Vama će se naći 36 sličica koje je potrebno upariti.">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
