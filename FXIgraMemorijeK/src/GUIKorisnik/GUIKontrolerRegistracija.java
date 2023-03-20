@@ -7,6 +7,7 @@ package GUIKorisnik;
 import DomenskiObjekat.GeneralDObject;
 import DomenskiObjekat.Korisnik;
 import GUIKorisnik.Osluskivac.OsluskivacKreirajDK;
+import GUIKorisnik.Osluskivac.OsluskivacPrijavaKorisnika;
 import TransferObjekat.GenerickiTransferObjekat;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -28,11 +29,14 @@ public class GUIKontrolerRegistracija {
     ObjectInputStream in;
 
     GenerickiTransferObjekat gto;
+    OsluskivacPrijavaKorisnika opk;
 
     public GUIKontrolerRegistracija(FXMLDocumentController fxcon) throws IOException {
         this.fxcon = fxcon;
+        opk = new OsluskivacPrijavaKorisnika(fxcon);
 
         this.fxcon.kreirajKorisnika.setOnAction(new OsluskivacKreirajDK(this));
+        this.fxcon.prijaviKorisnika.setOnAction(opk);
 
         soket = new Socket("127.0.0.1", 8189);
         gto = new GenerickiTransferObjekat();
@@ -49,16 +53,14 @@ public class GUIKontrolerRegistracija {
 
     public void kreirajDK() {
 
-        Korisnik kor = new Korisnik();
-        kor.setKorisnickoIme(fxcon.korisnickoIme.getText());
-        kor.setSifra(fxcon.sifra.getText());
-        kor.setIme(fxcon.ime.getText());
-        kor.setPrezime(fxcon.prezime.getText());
-        kor.setDatumRegistracije(konvertujLocalDateUSqlDate(konvertujUtilDateULocalDate(new java.util.Date())));
-
-        // System.out.println("Korisnik koji se salje je: " + kor.toString());
-        pozivSO(nazivSOKreiraj(), kor);
-        poruka(gto.getPoruka().getPoruka());
+        if (svePopunjeno()) {
+            Korisnik kor = popuniKorisnika();
+            gto.setDK(kor);
+            pozivSO(nazivSOKreiraj());
+            poruka(gto.getPoruka().getPoruka());
+        } else {
+            poruka("Sva polja moraju biti popunjena!");
+        }
         try {
             System.out.println("Dobijeni Id korisnika iz poruke je: " + gto.getPoruka().getUlogovaniKorisnik().getIDKorisnik());
         } catch (Exception e) {
@@ -70,10 +72,12 @@ public class GUIKontrolerRegistracija {
         return "kreirajDK";
     }
 
-    public void pozivSO(String nazivSO, Korisnik kor) {
+    public void pozivSO(String nazivSO) {
         gto.setNazivOperacije(nazivSO);
-        System.out.println("Korisnik koji se salje iz metode pozivSO je: " + kor.toString());
-        gto.setDK(kor);
+        //Prvo sam kroz konstruktor metode prosledila korisnika koji treba da se setuje
+        //Ali kako bi postalo vise genericko onda sam ga sklonila i postavila u konkretnoj metodu kreirajDK
+        //System.out.println("Korisnik koji se salje iz metode pozivSO je: " + kor.toString());
+        //gto.setDK(kor);
 
         try {
             out = new ObjectOutputStream(soket.getOutputStream());
@@ -110,6 +114,28 @@ public class GUIKontrolerRegistracija {
         SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
         java.util.Date date = java.sql.Date.valueOf(input);
         return java.sql.Date.valueOf(sm.format(date));
+    }
+
+    private boolean svePopunjeno() {
+        String korIme = this.fxcon.korisnickoIme.getText();
+        String sifra = this.fxcon.sifra.getText();
+        String ime = this.fxcon.ime.getText();
+        String prezime = this.fxcon.prezime.getText();
+
+        if (!korIme.isEmpty() && !sifra.isEmpty() && !ime.isEmpty() && !prezime.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    private Korisnik popuniKorisnika() {
+        Korisnik kor = new Korisnik();
+        kor.setKorisnickoIme(fxcon.korisnickoIme.getText());
+        kor.setSifra(fxcon.sifra.getText());
+        kor.setIme(fxcon.ime.getText());
+        kor.setPrezime(fxcon.prezime.getText());
+        kor.setDatumRegistracije(konvertujLocalDateUSqlDate(konvertujUtilDateULocalDate(new java.util.Date())));
+        return kor;
     }
 
     //MOZDA MI ZATREBA
