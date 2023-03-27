@@ -4,6 +4,8 @@
  */
 package Server;
 
+import Server_client.GenerickiKontrolerServer;
+import Server_client.GenerickiTransferObjekatKorisnik;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -21,7 +23,7 @@ import javax.xml.namespace.QName;
 @Path("generickikontrolerserverport")
 public class GenerickiKontrolerServerPort {
 
-    private Server_client.GenerickiKontrolerServer port;
+    private GenerickiKontrolerServer port;
 
     @Context
     private UriInfo context;
@@ -42,7 +44,7 @@ public class GenerickiKontrolerServerPort {
     @Produces("application/xml")
     @Consumes("application/xml")
     @Path("prijavidk/")
-    public JAXBElement<Server_client.GenerickiTransferObjekatKorisnik> postPrijaviDK(JAXBElement<Server_client.GenerickiTransferObjekatKorisnik> arg0) {
+    public JAXBElement<GenerickiTransferObjekatKorisnik> postPrijaviDK(JAXBElement<GenerickiTransferObjekatKorisnik> arg0) {
         try {
             // Call Web Service Operation
             if (port != null) {
@@ -58,7 +60,7 @@ public class GenerickiKontrolerServerPort {
     /**
      *
      */
-    private Server_client.GenerickiKontrolerServer getPort() {
+    private GenerickiKontrolerServer getPort() {
         try {
             // Call Web Service Operation
             Server_client.GenerickiKontrolerServer_Service service = new Server_client.GenerickiKontrolerServer_Service();

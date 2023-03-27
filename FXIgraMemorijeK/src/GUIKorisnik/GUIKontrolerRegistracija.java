@@ -53,18 +53,6 @@ public class GUIKontrolerRegistracija {
 
     public void kreirajDK() {
 
-<<<<<<< HEAD
-        Korisnik kor = new Korisnik();
-        kor.setKorisnickoIme(fxcon.korisnickoIme.getText());
-        kor.setSifra(fxcon.sifra.getText());
-        kor.setIme(fxcon.ime.getText());
-        kor.setPrezime(fxcon.prezime.getText());
-        kor.setDatumRegistracije(konvertujLocalDateUSqlDate(konvertujUtilDateULocalDate(new java.util.Date())));
-
-        gto.setDK(kor);
-        pozivSO(nazivSOKreiraj());
-        poruka(gto.getPoruka().getPoruka());
-=======
         if (svePopunjeno()) {
             Korisnik kor = popuniKorisnika();
             gto.setDK(kor);
@@ -73,7 +61,6 @@ public class GUIKontrolerRegistracija {
         } else {
             poruka("Sva polja moraju biti popunjena!");
         }
->>>>>>> origin
         try {
             System.out.println("Dobijeni Id korisnika iz poruke je: " + gto.getPoruka().getUlogovaniKorisnik().getIDKorisnik());
         } catch (Exception e) {

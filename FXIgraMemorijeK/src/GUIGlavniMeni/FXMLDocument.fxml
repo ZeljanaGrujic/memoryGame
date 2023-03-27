@@ -113,7 +113,7 @@
   
                <items>
   
-            <MenuItem fx:id="knjigePisci" mnemonicParsing="false" text="Knjige - Pisci (nivo 1)" />  
+            <MenuItem fx:id="knjigePisci" mnemonicParsing="false" text="Pesnici - Pisci (nivo 1)" />  
             <MenuItem fx:id="razno" mnemonicParsing="false" text="Razno (nivo 2)" />  
                </items>
   

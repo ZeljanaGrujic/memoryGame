@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="383.0" prefWidth="321.0" styleClass="pozadina" stylesheets="@../CSS/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIMojProfil.FXMLDocumentController">
+<AnchorPane prefHeight="383.0" prefWidth="321.0" styleClass="pozadina" stylesheets="@../CSS/stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIMojProfil.FXMLDocumentController">
    <children>
       <TextField fx:id="ime" editable="false" layoutX="13.0" layoutY="203.0" prefHeight="25.0" prefWidth="119.0" />
       <Label layoutX="175.0" layoutY="179.0" text="Korisničko ime:" textFill="#1801c1">
