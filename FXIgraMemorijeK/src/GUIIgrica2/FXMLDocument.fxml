@@ -65,6 +65,7 @@
                 <VBox fx:id="v51" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             </children>
         </GridPane>
-        <Button fx:id="zatvori" cancelButton="true" layoutX="391.0" layoutY="940.0" mnemonicParsing="false" onAction="#izlazIzIgrice" prefHeight="26.0" prefWidth="125.0" text="Zatvori" visible="false" />
+        <Button fx:id="zatvori" cancelButton="true" layoutX="720.0" layoutY="940.0" mnemonicParsing="false" onAction="#izlazIzIgrice" prefHeight="26.0" prefWidth="125.0" text="Zatvori" visible="false" />
+      <Button fx:id="igrajPonovo" layoutX="150.0" layoutY="941.0" mnemonicParsing="false" onAction="#igrajPonovo" prefHeight="26.0" prefWidth="158.0" text="Igraj ponovo" visible="false" />
     </children>
 </AnchorPane>

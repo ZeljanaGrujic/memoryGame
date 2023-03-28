@@ -81,13 +81,17 @@ public class GUIKontrolerPrijavljivanje {
                     jfx03.postaviKorisnika(gto.getTekst().getUlogovaniKorisnik());
                     this.fxcon.zatvoriFormu();
                 } catch (Exception ex) {
-                    System.err.println("Greska prilikom pokretanja glavnog menija iz GUIKontrolerPrijavljivanje klase");
+                    System.err.println("Greska prilikom pokretanja glavnog menija iz GUIKontrolerPrijavljivanje klase" + ex.getLocalizedMessage());
                 }
 
             } else {
                 poruka("Neuspesna prijava, pokusajte ponovo.");
             }
-            System.out.println("Prijavljeni korisnik ima ID: " + gto.getTekst().getUlogovaniKorisnik().getIdKorisnik());
+            try {
+                System.out.println("Prijavljeni korisnik ima ID: " + gto.getTekst().getUlogovaniKorisnik().getIdKorisnik());
+            } catch (Exception e) {
+                System.err.println("Ovo se ne sme ispisivati ako se ne prijavim uspesno! " + e.getLocalizedMessage());
+            }
         } else {
 
             poruka("Niste uneli korisnicko ime i/ili sifru!");

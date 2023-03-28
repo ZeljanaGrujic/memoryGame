@@ -17,6 +17,7 @@ public class OsluskivacPesniciPisci implements EventHandler {
 
     public OsluskivacPesniciPisci(GUIGlavniMeni.GUIKontrolerGlavniMeni kongui) {
         this.kongui = kongui;
+
     }
 
     @Override

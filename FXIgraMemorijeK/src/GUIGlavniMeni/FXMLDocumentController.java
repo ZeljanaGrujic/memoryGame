@@ -238,7 +238,6 @@ public class FXMLDocumentController {
     public GUIKontrolerGlavniMeni kngui;
 
     public Long idKorisnika;
-
     public Korisnik ulogovaniKor;
 
     @FXML
@@ -257,6 +256,7 @@ public class FXMLDocumentController {
         stage.close();
     }
 
+    //Ove dve metode mi ne trebaju vec imam ulogovanog korisnika ovde
     public void postaviIDKorisnika(Long id) {
         this.idKorisnika = id;
     }

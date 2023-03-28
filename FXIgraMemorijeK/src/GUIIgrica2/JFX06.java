@@ -5,6 +5,7 @@
 package GUIIgrica2;
 
 import GUIIgrica1.*;
+import Server_client.Korisnik;
 import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +48,11 @@ public class JFX06 extends Application {
 
     public FXMLDocumentController getController() {
         return this.con;
+    }
+    
+    public void postaviPodatke(Long idKorisnika) {
+
+        con.postaviPodatke(idKorisnika);
     }
 
 }

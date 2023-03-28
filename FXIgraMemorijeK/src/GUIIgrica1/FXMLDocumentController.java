@@ -4,6 +4,7 @@
  */
 package GUIIgrica1;
 
+import Server_client.Korisnik;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -63,10 +64,15 @@ public class FXMLDocumentController {
 
     @FXML
     public Button zatvori;
+    @FXML
+    public Button igrajPonovo;
 
     public Stage stage;
 
     public GUIKontrolerIgrica kngui;
+
+    public Long idKorisnika;
+    //public Korisnik ulogovaniKorisnik;
 
     /* @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -76,6 +82,24 @@ public class FXMLDocumentController {
     @FXML
     public void izlazIzIgrice() {
         stage.close();
+    }
+
+    @FXML
+    public void igrajPonovo() {
+        Stage s1;
+        GUIIgrica1.JFX06 jfx06;
+
+        jfx06 = new GUIIgrica1.JFX06();
+        s1 = new Stage();
+        try {
+
+            jfx06.start(s1);
+            jfx06.postaviPodatke(idKorisnika);
+            stage.close();
+        } catch (Exception e) {
+            System.err.println("Greska prilikom ponovnog pokretanja igrice 1" + e.getLocalizedMessage());
+        }
+
     }
 
     @FXML
@@ -94,6 +118,25 @@ public class FXMLDocumentController {
 
     public void postaviSliku() {
         kngui.postaviSlikuNaKarticu();
+    }
+
+    /*
+    public void postaviIdKorisnik(Long idKorisnik) {
+        this.idKorisnik = idKorisnik;
+    }
+
+    public Long vratiIdKorisnik() {
+        return this.idKorisnik;
+    }
+     */
+    public void postaviPodatke(Long idKorisnika) {
+
+        this.idKorisnika = idKorisnika;
+    }
+
+    public Long vratiUlogovaniKorisnik() {
+
+        return this.idKorisnika;
     }
 
 }

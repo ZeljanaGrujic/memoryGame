@@ -5,8 +5,11 @@
 package GUIIgrica1.Osluskivaci;
 
 import DomenskiObjekat.Kartica;
+import DomenskiObjekat.Partija;
+import GUIIgrica.Ponasanje.DodajPartiju;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import java.util.Date;
 
 /**
  *
@@ -46,9 +49,12 @@ public class OsluskivacOkreniKarticu implements EventHandler {
         }
         if (kongui.sveUpareno()) {
             kongui.poruka("Pobedili ste!");
-            kongui.pobeda = 1;
 
             kongui.fxcon.zatvori.setVisible(true);
+            kongui.fxcon.igrajPonovo.setVisible(true);
+
+            Partija partija = new Partija(kongui.fxcon.vratiUlogovaniKorisnik(), 1, new Date());
+            new DodajPartiju().dodajPartiju(partija);
         }
     }
 

@@ -33,7 +33,6 @@ public class GUIKontrolerIgrica {
     public FXMLDocumentController fxcon;
     List<Kartica> kartice;
     static Kartica izabranaKartica;
-    public int pobeda = 0;
 
     //GridPane rootSceene = new GridPane();
     //VBox box = new VBox();
@@ -41,7 +40,7 @@ public class GUIKontrolerIgrica {
         this.fxcon = fxcon;
         try {
             postaviTalonForma();
-            System.out.println("Vrednost promenljive pobeda je: " + pobeda);
+
             // vratiTalon();
             // postaviSlikuNaKarticu();
         } catch (Exception e) {

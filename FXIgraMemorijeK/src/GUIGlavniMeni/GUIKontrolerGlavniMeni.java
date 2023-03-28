@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 public class GUIKontrolerGlavniMeni {
 
     FXMLDocumentController fxcon;
-    int mat[][];
+    // int mat[][];
 
     public GUIKontrolerGlavniMeni(FXMLDocumentController fxcon) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         this.fxcon = fxcon;
@@ -39,6 +39,8 @@ public class GUIKontrolerGlavniMeni {
 
         // 2. Pokreni igru
         // 2.1 Pesnici pisci
+        //Ovom soluskivacu zelim da prosledim ulogovanog korinsika koji igra igru!
+        //tako da moram da mu dodam Korisnik polje ili bar idKorisnika, tako da kad se pokrene forma pesnici pisci imam tu id korisnika
         this.fxcon.knjigePisci.setOnAction(new OsluskivacPesniciPisci(this));
         //2.2 Razno
 
@@ -89,16 +91,22 @@ public class GUIKontrolerGlavniMeni {
 
         GUIIgrica1.JFX06 jfx06;
         GUIIgrica1.FXMLDocumentController igrCon;
+        //dokument kontroleru dodati polje Long idKorisnik
         Stage s;
 
         jfx06 = new GUIIgrica1.JFX06();
         igrCon = jfx06.getController();
+        System.out.println("ID ulogovanog korinsika iz prikazi igricu pesnici pisci metode je: " + this.fxcon.vratiIDKorisnika());
+        Long ulogovanogKorisnika = this.fxcon.vratiIDKorisnika();
+        // igrCon.postaviPodatke(ulogovanogKorisnika);
 
         s = new Stage();
 
         try {
             //jfx06.start(cn.postaviTalon());
             jfx06.start(s);
+            jfx06.postaviPodatke(ulogovanogKorisnika);
+            System.out.println("GUIGlavniMeni.GUIKontrolerGlavniMeni.prikaziIgruPesniciPisci() postavljeni id korisnika je:" + ulogovanogKorisnika);
         } catch (Exception ex) {
             System.err.println("Greska u metodi GuiKontrolerGlavniMeni prilikom odabira Pisci iz padajuceg menija");
 
@@ -113,12 +121,15 @@ public class GUIKontrolerGlavniMeni {
 
         jfx06 = new GUIIgrica2.JFX06();
         igrCon = jfx06.getController();
+        System.out.println("ID ulogovanog korinsika iz prikazi igricu razno metode je: " + this.fxcon.vratiIDKorisnika());
+        Long ulogovanogKorisnika = this.fxcon.vratiIDKorisnika();
 
         s = new Stage();
 
         try {
             //jfx06.start(cn.postaviTalon());
             jfx06.start(s);
+            jfx06.postaviPodatke(ulogovanogKorisnika);
         } catch (Exception ex) {
             System.err.println("Greska u metodi GuiKontrolerGlavniMeni prilikom odabira RAZNO iz padajuceg menija");
 
