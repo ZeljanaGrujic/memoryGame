@@ -19,16 +19,16 @@ public class Kartica extends ImageView {
     private boolean okrenuta;
 
     public Kartica() {
-        this.setFitWidth(180);
-        this.setFitHeight(170);
+        this.setFitWidth(140);
+        this.setFitHeight(120);
         this.setPreserveRatio(true);
     }
 
     public Kartica(String url) {
         super(unknown);
         this.url = url;
-        this.setFitWidth(180);
-        this.setFitHeight(170);
+        this.setFitWidth(140);
+        this.setFitHeight(120);
         this.setPreserveRatio(true);
     }
 
@@ -88,8 +88,8 @@ public class Kartica extends ImageView {
     public void otvori() {
         this.setImage(new Image(url));
         this.okrenuta = true;
-        this.setFitWidth(180);
-        this.setFitHeight(170.0);
+        this.setFitWidth(140);
+        this.setFitHeight(120.0);
 
         this.setPreserveRatio(true);
     }

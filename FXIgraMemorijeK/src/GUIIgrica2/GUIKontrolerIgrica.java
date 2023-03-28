@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package GUIIgrica1;
+package GUIIgrica2;
 
+import GUIIgrica2.*;
 import DomenskiObjekat.Kartica;
-import GUIIgrica1.Osluskivaci.OsluskivacOkreniKarticu;
-import GUIIgrica1.Osluskivaci.OsluskivacPocni;
+import GUIIgrica2.Osluskivaci.OsluskivacOkreniKarticu;
+import GUIIgrica2.Osluskivaci.OsluskivacPocni;
 import GUIIgrica1.Osluskivaci.OsluskivacZatvoriKarticu;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,7 +42,6 @@ public class GUIKontrolerIgrica {
         this.fxcon = fxcon;
         try {
             postaviTalonForma();
-            System.out.println("Vrednost promenljive pobeda je: " + pobeda);
             // vratiTalon();
             // postaviSlikuNaKarticu();
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public class GUIKontrolerIgrica {
         kartice = new ArrayList<>();
         int br = 0;
 
-        for (int i = 0; i <= 7; i++) {
+        for (int i = 0; i <= 17; i++) {
             Kartica k1 = new Kartica("/Slike/slika" + String.valueOf(i) + ".png");
             k1.setId(String.valueOf(br));
             System.out.println("Referenca kartice 1: " + k1);
@@ -90,10 +90,10 @@ public class GUIKontrolerIgrica {
 
     public Kartica[][] vratiTalon() {
         List<Kartica> lista = postaviSlikuNaKarticu();
-        Kartica[][] talon = new Kartica[4][4];
+        Kartica[][] talon = new Kartica[6][6];
         int brojac = 0;
-        for (int i = 0; i <= 3; i++) {
-            for (int j = 0; j <= 3; j++) {
+        for (int i = 0; i <= 5; i++) {
+            for (int j = 0; j <= 5; j++) {
                 Kartica k = lista.get(brojac);
                 System.out.println("Referenca na karticu: " + k);
                 System.out.println("URL kartice iz vrati talon metode je:" + k.getUrl());
@@ -107,10 +107,13 @@ public class GUIKontrolerIgrica {
     public void postaviTalonForma() {
         Kartica[][] talon = vratiTalon();
 
-        for (int i = 0; i <= 3; i++) {
-            for (int j = 0; j <= 3; j++) {
+        for (int i = 0; i <= 5; i++) {
+            for (int j = 0; j <= 5; j++) {
                 Kartica k = talon[i][j];
                 //sada na ovu karticu moram da dodam osluskivace
+                k.setFitHeight(120);
+                k.setFitWidth(140);
+                k.setPreserveRatio(true);
                 k.setOnMouseExited(new OsluskivacZatvoriKarticu(k, izabranaKartica));
                 k.setOnMouseClicked(new OsluskivacOkreniKarticu(k, izabranaKartica, this));
                 HBox hbox = new HBox(k);
@@ -119,6 +122,7 @@ public class GUIKontrolerIgrica {
 
             }
         }
+        System.out.println("Vrednost promenljive pobeda je: " + pobeda);
 
     }
 

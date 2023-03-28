@@ -8,6 +8,7 @@ package GUIGlavniMeni;
 import GUIGlavniMeni.Osluskivaci.OsluskivacMojProfil;
 import GUIGlavniMeni.Osluskivaci.OsluskivacPesniciPisci;
 import GUIGlavniMeni.Osluskivaci.OsluskivacPravilaIgre;
+import GUIGlavniMeni.Osluskivaci.OsluskivacRazno;
 import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,6 +41,8 @@ public class GUIKontrolerGlavniMeni {
         // 2.1 Pesnici pisci
         this.fxcon.knjigePisci.setOnAction(new OsluskivacPesniciPisci(this));
         //2.2 Razno
+
+        this.fxcon.razno.setOnAction(new OsluskivacRazno(this));
         // 3. Moj profil
         // 3.1 Moj profil
         this.fxcon.mojProfil.setOnAction(new OsluskivacMojProfil(this));
@@ -100,6 +103,27 @@ public class GUIKontrolerGlavniMeni {
             System.err.println("Greska u metodi GuiKontrolerGlavniMeni prilikom odabira Pisci iz padajuceg menija");
 
         }
+    }
+
+    public void prikaziIgruRazno() {
+
+        GUIIgrica2.JFX06 jfx06;
+        GUIIgrica2.FXMLDocumentController igrCon;
+        Stage s;
+
+        jfx06 = new GUIIgrica2.JFX06();
+        igrCon = jfx06.getController();
+
+        s = new Stage();
+
+        try {
+            //jfx06.start(cn.postaviTalon());
+            jfx06.start(s);
+        } catch (Exception ex) {
+            System.err.println("Greska u metodi GuiKontrolerGlavniMeni prilikom odabira RAZNO iz padajuceg menija");
+
+        }
+
     }
 
     public void prikaziMojProfil() {

@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
  */
-package GUIIgrica1;
+package GUIIgrica2;
 
+import GUIIgrica1.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -30,6 +31,10 @@ public class FXMLDocumentController {
     public VBox v02;
     @FXML
     public VBox v03;
+    @FXML
+    public VBox v04;
+    @FXML
+    public VBox v05;
 
     @FXML
     public VBox v10;
@@ -41,6 +46,10 @@ public class FXMLDocumentController {
     public VBox v12;
     @FXML
     public VBox v13;
+    @FXML
+    public VBox v14;
+    @FXML
+    public VBox v15;
 
     @FXML
     public VBox v20;
@@ -51,6 +60,10 @@ public class FXMLDocumentController {
     public VBox v22;
     @FXML
     public VBox v23;
+    @FXML
+    public VBox v24;
+    @FXML
+    public VBox v25;
 
     @FXML
     public VBox v30;
@@ -60,6 +73,36 @@ public class FXMLDocumentController {
     public VBox v32;
     @FXML
     public VBox v33;
+    @FXML
+    public VBox v34;
+    @FXML
+    public VBox v35;
+
+    @FXML
+    public VBox v40;
+    @FXML
+    public VBox v41;
+    @FXML
+    public VBox v42;
+    @FXML
+    public VBox v43;
+    @FXML
+    public VBox v44;
+    @FXML
+    public VBox v45;
+
+    @FXML
+    public VBox v50;
+    @FXML
+    public VBox v51;
+    @FXML
+    public VBox v52;
+    @FXML
+    public VBox v53;
+    @FXML
+    public VBox v54;
+    @FXML
+    public VBox v55;
 
     @FXML
     public Button zatvori;
