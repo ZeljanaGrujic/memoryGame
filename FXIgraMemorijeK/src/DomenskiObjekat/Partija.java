@@ -51,6 +51,15 @@ public class Partija extends GeneralDObject {
         datumIgranja = java.sql.Date.valueOf(sm.format(dDatum));
     }
 
+    public Partija(Long idPartija, Long idKorisnik, int idIgrica, java.sql.Date datumIgranja) {
+
+        this.idPartija = idPartija;
+        this.idKorisnik = idKorisnik;
+        this.idIgrica = 0;
+        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
+        this.datumIgranja = java.sql.Date.valueOf(sm.format(datumIgranja));
+    }
+
     public Long getIdPartija() {
         return idPartija;
     }

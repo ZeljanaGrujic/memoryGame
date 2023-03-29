@@ -14,7 +14,7 @@ import javafx.scene.image.ImageView;
  */
 public class Kartica extends ImageView {
 
-    private static final String unknown = "/Slike/bgImage.jpg";
+    private static final String pozadina = "/Slike/bgImage.jpg";
     private String url;
     private boolean okrenuta;
 
@@ -25,15 +25,15 @@ public class Kartica extends ImageView {
     }
 
     public Kartica(String url) {
-        super(unknown);
+        super(pozadina);
         this.url = url;
         this.setFitWidth(140);
         this.setFitHeight(120);
         this.setPreserveRatio(true);
     }
 
-    public static String getUnknown() {
-        return unknown;
+    public static String getPozadina() {
+        return pozadina;
     }
 
     public String getUrl() {
@@ -78,7 +78,7 @@ public class Kartica extends ImageView {
     }
 
     public void zatvori() {
-        this.setImage(new Image(unknown));
+        this.setImage(new Image(pozadina));
     }
 
     public void prikaziKarticu() {

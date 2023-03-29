@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="383.0" prefWidth="321.0" styleClass="pozadina" stylesheets="@../CSS/stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIMojProfil.FXMLDocumentController">
+<AnchorPane prefHeight="358.0" prefWidth="584.0" styleClass="pozadina" stylesheets="@../CSS/stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIMojProfil.FXMLDocumentController">
    <children>
       <TextField fx:id="ime" editable="false" layoutX="13.0" layoutY="203.0" prefHeight="25.0" prefWidth="119.0" />
       <Label layoutX="175.0" layoutY="179.0" text="Korisničko ime:" textFill="#1801c1">
@@ -17,7 +17,7 @@
          <font>
             <Font name="System Bold" size="11.0" />
          </font></Label>
-      <Button fx:id="zatvori" layoutX="105.0" layoutY="329.0" mnemonicParsing="false" onAction="#izlazIzPrograma" prefHeight="26.0" prefWidth="111.0" styleClass="dugme" stylesheets="@../CSS/stylesheet.css" text="Zatvori" textFill="#1b24d0" />
+      <Button fx:id="zatvori" layoutX="236.0" layoutY="317.0" mnemonicParsing="false" onAction="#izlazIzPrograma" prefHeight="26.0" prefWidth="111.0" styleClass="dugme" stylesheets="@../CSS/stylesheet.css" text="Zatvori" textFill="#1b24d0" />
       <Label layoutX="13.0" layoutY="242.0" text="Prezime" textFill="#1801c1">
          <font>
             <Font name="System Bold" size="11.0" />
@@ -46,5 +46,34 @@
       </Label>
       <TextField fx:id="datumRegistracije" editable="false" layoutX="104.0" layoutY="123.0" prefHeight="26.0" prefWidth="111.0" />
       <TextField fx:id="sifra" editable="false" layoutX="172.0" layoutY="267.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label layoutX="394.0" layoutY="14.0" prefHeight="32.0" prefWidth="111.0" text="Vaša aktivnost:" textFill="#1801c1">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="361.0" layoutY="55.0" prefHeight="16.0" prefWidth="198.0" text="Broj odigranih igara težine - nivo 1" textFill="#1801c1">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nivo1" editable="false" layoutX="410.0" layoutY="80.0" prefHeight="26.0" prefWidth="80.0" />
+      <Label layoutX="326.0" layoutY="115.0" prefHeight="16.0" prefWidth="248.0" text="Datum poslednje odigrane igre težine nivo - 1" textFill="#1801c1">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <TextField fx:id="datumNivo1" editable="false" layoutX="394.0" layoutY="136.0" prefHeight="26.0" prefWidth="111.0" />
+      <Label layoutX="361.0" layoutY="179.0" prefHeight="16.0" prefWidth="198.0" text="Broj odigranih igara težine - nivo 2" textFill="#1801c1">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nivo2" editable="false" layoutX="410.0" layoutY="202.0" prefHeight="26.0" prefWidth="80.0" />
+      <Label layoutX="326.0" layoutY="242.0" prefHeight="16.0" prefWidth="248.0" text="Datum poslednje odigrane igre težine nivo - 2" textFill="#1801c1">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <TextField fx:id="datumNivo2" editable="false" layoutX="404.0" layoutY="266.0" prefHeight="26.0" prefWidth="111.0" />
    </children>
 </AnchorPane>
